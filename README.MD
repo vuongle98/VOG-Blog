@@ -1,7 +1,7 @@
-## create new environment and install flask 
-python3 -m venv venv 
-source venv/bin/activate 
-pip install -r requirements.txt 
+## create new environment and install flask <br />
+python3 -m venv venv <br />
+source venv/bin/activate <br />
+pip install -r requirements.txt <br />
 
-## Run server 
-flask run 
+## Run server <br />
+flask run <br />
