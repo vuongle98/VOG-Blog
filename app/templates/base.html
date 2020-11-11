@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VuOG {% if title %} - {{ title }} {% endif %} </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}" type="image/x-icon">
+    {% block styles %}
+    {% endblock %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><a class="home" href="/">VuOG</a></h1>
+            <div class="quote">
+                <small>By impossible of in difficulty discovered celebrated ye.</small>
+            </div>
+            
+        </div>
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <a href="/">Home</a>
+            {% if current_user.is_authenticated %}
+                <a href="/post/create">New post</a>
+                <a href="/user/profile">{{ current_user.username }}</a>
+                <a href="/logout">Logout</a>
+                
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+
+        </div> 
+        <hr>
+        <div class="wrapper">
+            <div class="main">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="messages">
+                        {{ message }}                            
+                    </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                
+                {% block content %}
+                
+                {% endblock %}
+
+            {# <!-- <div class="side">
+                <div class="item-side">
+                    <h2>About Me</h2>
+                    <h5>Photo of me:</h5>
+                    <div class="fakeimg" style="height:200px;">Image</div>
+                    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+                    <h3>More Text</h3>
+                    <p>Lorem ipsum dolor sit ame.</p>
+                    <div class="fakeimg" style="height:60px;">Image</div><br>
+                </div>
+                
+
+            </div> --> #}
+        </div>
+        {#<!-- Footer -->
+        <!-- <div class="footer">
+            <h2>Footer</h2>
+        </div> -->#}
+    </div>
+</body>
+
+</html>

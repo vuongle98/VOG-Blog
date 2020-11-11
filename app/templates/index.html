@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if posts %}
+    {% for post in posts %}
+        {% include('_post.html') %}
+    {% endfor %}
+    {% else %}
+        <div class="content">
+            <p>Nothing here. Do you want to <a href="/post/create"><strong>Create new post?</strong> </a></p>
+            
+        </div>
+    {% endif %}
+    {#<!-- <div class="content">
+        <h3><a href="/view"> Nobis mollitia sed possimus provident non?</a></h3>
+        <small>Author</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat aspernatur quo, odio, id sunt explicabo repellendus dolorum magnam quis fugit deserunt temporibus facilis voluptate dicta mollitia maiores voluptas quibusdam.</p>
+    </div>
+    <div class="content">
+        <h3><a href=""> Nobis mollitia sed possimus provident non?</a></h3>
+        <small>Author</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat aspernatur quo, odio, id sunt explicabo repellendus dolorum magnam quis fugit deserunt temporibus facilis voluptate dicta mollitia maiores voluptas quibusdam.</p>
+    </div>
+    <div class="content">
+        <h3><a href=""> Nobis mollitia sed possimus provident non?</a></h3>
+        <small>Author</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat aspernatur quo, odio, id sunt explicabo repellendus dolorum magnam quis fugit deserunt temporibus facilis voluptate dicta mollitia maiores voluptas quibusdam.</p>
+    </div>
+    <div class="content">
+        <h3><a href=""> Nobis mollitia sed possimus provident non?</a></h3>
+        <small>Author</small>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi placeat aspernatur quo, odio, id sunt explicabo repellendus dolorum magnam quis fugit deserunt temporibus facilis voluptate dicta mollitia maiores voluptas quibusdam.</p>
+    </div> -->
+    #}
+    <div class="pagination">
+        <div class="prev">
+            {% if prev_url %}
+            <a href="{{ prev_url }}">Trang trước</a>
+            {% endif %}
+        </div>
+        
+        <div class="next">
+            {% if next_url %}
+            <a href="{{ next_url }}">Trang tiếp</a>
+            {% endif %}
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/admin.css') }}">
+{% endblock %}
+{% block content %}
+    {#
+        <div class="user-manager">
+            <h3>All user</h3>
+            {% for user in users %}
+                {% include('_user.html') %}
+            {% endfor %}
+            <div class="pagination">
+                {% if prev_user_url %}
+                <a href="{{ prev_user_url }}">Trang trước</a>
+                {% endif %}
+                {% if next_user_url %}
+                <a href="{{ next_user_url }}">Trang tiếp</a>
+                {% endif %}
+            </div>
+        </div>
+    #}
+    <div class="post-manager">
+        <h3>All post</h3>
+        {% for post in posts %}
+            {% include('_post.html') %}
+        {% endfor %}
+        <div class="pagination">
+            {% if prev_post_url %}
+            <a href="{{ prev_post_url }}">Trang trước</a>
+            {% endif %}
+            {% if next_post_url %}
+            <a href="{{ next_post_url }}">Trang tiếp</a>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        
+    </script>
+{% endblock %}
+

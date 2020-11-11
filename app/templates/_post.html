@@ -1,0 +1,16 @@
+
+<div class="content">
+    <div>
+        {% if current_user==post.author or current_user.role == 1 %}
+            <a onclick="return confirm('Có chắc xóa không?')" href="{{ url_for('delete_post', id=post.id) }}">Delete</a>
+            <a href="{{ url_for('edit_post', slug=post.slug) }}">Edit</a>
+        {% endif %}
+    </div>
+    <h3><a href="{{ url_for('view_post', slug=post.slug) }}">{{ post.title }}</a></h3>
+    <small class="author"><strong>{{ post.author.username }}</strong></small>
+
+    <p>
+        {{ post.description|safe }}
+        <span><a href="{{ url_for('view_post', slug=post.slug) }}">Đọc thêm >></a></span>
+    </p>
+</div>

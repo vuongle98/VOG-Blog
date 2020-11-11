@@ -1,0 +1,15 @@
+.user-manager {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.post-manager {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.deleted {
+    background-color: rgb(247, 141, 141);
+}
